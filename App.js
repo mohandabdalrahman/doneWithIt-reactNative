@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, Button, Image } from 'react-native';
 import AppPicker from './app/components/AppPicker';
 import AppTextInput from './app/components/AppTextInput';
 import Card from './app/components/Card';
@@ -13,11 +13,12 @@ import LoginScreen from './app/screens/LoginScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
-
+import * as ImagePicker from 'expo-image-picker'
+import ImageInput from './app/components/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
+import ListingEditScreen from './app/screens/ListingEditScreen';
 
 export default function App() {
-  return (
-    <ListItem title="mohand" image={require('./app/assets/mohand.png')} />
-  );
+  return <ListingEditScreen />
 }
 
