@@ -4,13 +4,13 @@ import Card from '../components/Card'
 import Screen from '../components/Screen'
 import colors from '../config/color'
 import routes from '../navigation/routes'
-import { getListings } from '../api/listings'
+import listingApi from '../api/listings'
 import AppText from '../components/AppText'
 import AppButton from '../components/AppButton'
 import ActivityIndicator from '../components/ActivityIndicator'
 import useApi from '../hooks/useApi'
 const ListingsScreen = ({ navigation }) => {
-  const { data: listings, error, loading, request: fetchListings } = useApi(getListings)
+  const { data: listings, error, loading, request: fetchListings } = useApi(listingApi.getListings)
 
   useEffect(() => {
     fetchListings()

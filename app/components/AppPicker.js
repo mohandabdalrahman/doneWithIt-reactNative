@@ -5,20 +5,24 @@ import defaultStyles from '../config/styles'
 import AppText from './AppText'
 import Screen from './Screen'
 import PickerItem from './PickerItem'
-const AppPicker = ({ icon, items, placeholder }) => {
+const AppPicker = ({ icon, items, placeholder, onSelectItem, selectedItem }) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState(placeholder)
 
-  const handleSelectCategory = ({ label }) => {
+  const handleSelectCategory = (item) => {
     setModalVisible(false)
-    setSelectedCategory(label)
+    onSelectItem(item)
   }
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={styles.container}>
           {icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyles.colors.medium} style={styles.icon} />}
-          <AppText style={styles.text} >{selectedCategory}</AppText>
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+              <AppText style={styles.placeholder}>{placeholder}</AppText>
+            )}
           <MaterialCommunityIcons name="chevron-down" size={20} color={defaultStyles.colors.medium} />
         </View>
       </TouchableWithoutFeedback>
