@@ -2,8 +2,9 @@ import React from 'react'
 import { ImageBackground, StyleSheet, View, Image, Text } from 'react-native'
 import AppButton from '../components/AppButton'
 import colors from '../config/color'
+import routes from '../navigation/routes'
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <ImageBackground blurRadius={10} style={styles.background} source={require('../assets/background.jpg')}>
       <View style={styles.logoContainer}>
@@ -11,8 +12,8 @@ const WelcomeScreen = () => {
         <Text style={styles.tagLine}>Sell what you don't need</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title="Login" />
-        <AppButton title="Register" color='secondary' />
+        <AppButton title="Login" onPress={() => navigation.navigate(routes.LOGIN)} />
+        <AppButton title="Register" color='secondary' onPress={() => navigation.navigate(routes.REGISTER)} />
       </View>
     </ImageBackground>
   )

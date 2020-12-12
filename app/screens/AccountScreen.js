@@ -10,6 +10,7 @@ import colors from '../config/color'
 const menuItems = [
   {
     title: 'My Listing',
+    route:"Listings",
     icon: {
       name: 'format-list-bulleted',
       backgroundColor: colors.primary
@@ -17,13 +18,14 @@ const menuItems = [
   },
   {
     title: 'My Messages',
+    route:"Messages",
     icon: {
       name: 'email',
-      backgroundColor: colors.secondary
+      backgroundColor: colors.secondary,
     }
   }
 ]
-const AccountScreen = () => {
+const AccountScreen = ({ navigation }) => {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -33,11 +35,11 @@ const AccountScreen = () => {
         <FlatList
           data={menuItems}
           keyExtractor={item => item.title}
-          renderItem={({ item }) => <ListItem title={item.title} IconComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} />} />}
+          renderItem={({ item }) => <ListItem onPress={() => navigation.navigate(item.route)} title={item.title} IconComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} />} />}
           ItemSeparatorComponent={ListItemSeparator}
         />
       </View>
-        <ListItem title="Logout" IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />} />
+      <ListItem title="Logout" IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />} />
     </Screen>
   )
 }
