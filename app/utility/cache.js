@@ -11,7 +11,7 @@ const store = async (key, value) => {
     }
     await AsyncStorage.setItem(`${prefix}${key}`, JSON.stringify(item))
   } catch (error) {
-    console.log('🚀 ~ file: cache.js ~ line 9 ~ store ~ error', error)
+    console.log('🚀 ~ file: cache.js ~ line 14 ~ store ~ error', error)
   }
 }
 
@@ -33,7 +33,7 @@ const get = async (key) => {
     }
     return item.value
   } catch (error) {
-    console.log('🚀 ~ file: cache.js ~ line 21 ~ get ~ error', error)
+    console.log('🚀 ~ file: cache.js ~ line 36 ~ get ~ error', error)
   }
 }
 
